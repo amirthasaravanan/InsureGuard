@@ -223,7 +223,7 @@ header, nav.nav-container {
 
 
 
-/* The Glow Effect seen in your Form Page Screenshot */
+/* The Glow Effect */
 @keyframes glow { 
     from { text-shadow: 0 0 10px #00c6ff; } 
     to { text-shadow: 0 0 25px #00c6ff, 0 0 40px #0072ff; } 
