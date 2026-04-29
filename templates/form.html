@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Audit | InsureGuard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<header class="w-full text-center">
+    <div class="logo-text">
+        Insure<span class="text-sky-400">Guard</span>
+    </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 mt-16">
+    
+    <div class="mb-14 text-center relative flex flex-col items-center">
+        <h2 class="text-5xl font-black text-slate-900 tracking-tight relative inline-block mb-6">
+            Insurance Claim Form
+            
+        </h2>
+
+        <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-3 py-1 rounded-full border border-blue-100">
+            <span class="text-[9px] font-black uppercase tracking-[0.2em]">Manual Audit Entry</span>
+        </div>
+    </div>
+
+    
+</main>
+        
+        <form action="/process_claim" method="POST" class="space-y-10">
+            
+            <div>
+                <span class="section-label">1. Patient & Policy Information</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <input type="text" name="name" class="input-field" placeholder="Patient Full Name" required>
+    <input type="text" name="policy_id" class="input-field" placeholder="Policy ID" required>
+    <input type="number" name="contact" class="input-field" placeholder="Contact" required>
+    
+</div>
+                <div class="grid grid-cols-2 gap-4 mt-4">
+                    <input type="number" name="age" class="input-field" placeholder="Age" required>
+                    <select name="gender" class="input-field">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <span class="section-label">2. Provider & Urgency Level</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" name="hospital_name" class="input-field" placeholder="Hospital Name" required>
+                    <select name="hospital_type" class="input-field">
+                        <option value="" disabled selected hidden>Facility Type</option>
+                        <option value="Private">Private Facility</option>
+                        <option value="Government">Government Facility</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mt-4">
+                    <select name="urgency" class="input-field">
+                        <option value="" disabled selected hidden>Urgency level</option>
+                        <option value="Normal">Normal Urgency</option>
+                        <option value="Emergency">Emergency Case</option>
+                    </select>
+                    <select name="docs_uploaded" class="input-field">
+                        <option value="" disabled selected hidden>Reports Uploaded (Yes/No)?</option>
+                        <option value="Yes">Reports Uploaded (Yes)</option>
+                        <option value="No">Reports Uploaded (No)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+        <span class="section-label">3. Clinical Diagnosis & Treatment</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <select name="diagnosis" class="input-field bg-white">
+                <option value="" disabled selected hidden>Diagnosis</option>
+                <optgroup label="🔹 Common Conditions">
+                    <option value="Fever">Fever</option>
+                    <option value="Viral Infection">Viral Infection</option>
+                    <option value="Bacterial Infection">Bacterial Infection</option>
+                </optgroup>
+                <optgroup label="🔹 Injury">
+                    <option value="Fracture">Fracture</option>
+                    <option value="Sprain">Sprain</option>
+                </optgroup>
+                <optgroup label="🔹 Moderate Conditions">
+                    <option value="Kidney Stone">Kidney Stone</option>
+                    <option value="Appendicitis">Appendicitis</option>
+                </optgroup>
+                <optgroup label="🔹 Serious Conditions">
+                    <option value="Pneumonia">Pneumonia</option>
+                    <option value="Heart Condition">Heart Condition</option>
+                    <option value="Diabetes Complication">Diabetes Complication</option>
+                </optgroup>
+            </select>
+
+            <select name="treatment_type" class="input-field bg-white">
+                <option value="" disabled selected hidden>Treatment</option>
+                <optgroup label="🔹 Basic">
+                    <option value="Medication">Medication</option>
+                    <option value="Physiotherapy">Physiotherapy</option>
+                </optgroup>
+                <optgroup label="🔹 Diagnostic">
+                    <option value="Scan / Test">Scan / Test</option>
+                    <option value="Lab Tests">Lab Tests</option>
+                </optgroup>
+                <optgroup label="🔹 Procedures">
+                    <option value="Minor Procedure">Minor Procedure</option>
+                    <option value="Surgery">Surgery</option>
+                </optgroup>
+                <optgroup label="🔹 Advanced Care">
+                    <option value="ICU Care">ICU Care</option>
+                    <option value="Emergency Intervention">Emergency Intervention</option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <span class="section-label">4. Hospitalization Period</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1">
+                <label class="text-[10px] text-slate-400 font-bold ml-1">Admission Date</label>
+                <input type="date" name="admission_date" class="input-field" required>
+            </div>
+            <div class="flex flex-col gap-1">
+                <label class="text-[10px] text-slate-400 font-bold ml-1">Discharge Date</label>
+                <input type="date" name="discharge_date" class="input-field" required>
+            </div>
+        </div>
+    </div>
+            <div>
+                <span class="section-label">5. Financials & Stay Duration</span>
+                <div class="grid grid-cols-3 gap-3">
+    <input type="text" name="room_charges" class="input-field currency-input" placeholder="Room Charges (₹)" required>
+    <input type="text" name="treatment_charges" class="input-field currency-input" placeholder="Treatment Charges (₹)" required>
+    <input type="text" name="medicine_charges" class="input-field currency-input" placeholder="Medication Charges (₹)" required>
+</div>
+                
+                <div class="mt-4">
+    <input type="text" id="total_amount" name="total_amount" class="input-field currency-input text-center font-bold text-xl border-blue-200" placeholder="Total Claim Amount (₹)" required>
+</div>
+            </div>
+
+            
+    
+    <div class="flex justify-center mt-12 pb-10">
+    <button type="submit" id="submit-btn" class="btn-primary-light px-12 py-4 text-lg tracking-widest shadow-lg shadow-blue-200/50 flex items-center gap-3">
+        <span id="btn-text">INITIATE CLAIM ANALYSIS</span>
+    </button>
+</div>
+
+<script>
+    const claimForm = document.querySelector('form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+
+    claimForm.addEventListener('submit', function() {
+        // 1. Change text and add a loading look
+        btnText.innerText = "GENERATING AUDIT REPORT...";
+        submitBtn.style.opacity = "0.7";
+        submitBtn.style.cursor = "not-allowed";
+        
+        // 2. Optional: Add a small loading spinner icon if you want
+        submitBtn.innerHTML = `
+            <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            GENERATING AUDIT REPORT...
+        `;
+    });
+
+    // KEEP YOUR EXISTING CURRENCY FORMATTING LOGIC HERE
+    const currencyInputs = document.querySelectorAll('.currency-input');
+    currencyInputs.forEach(input => {
+        input.addEventListener('input', function(e) {
+            let rawValue = this.value.replace(/[^\d]/g, '');
+            if (rawValue) {
+                this.value = '₹' + Number(rawValue).toLocaleString('en-IN');
+            } else {
+                this.value = '';
+            }
+        });
+    });
+</script>
+</body>
+
+
+</html>

@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important; /* This KILLS the white space on the right */
+}
+:root {
+    --bg-color: #f8fafc;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --accent-blue: #2563eb;
+    --accent-sky: #38bdf8;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f8fafc;
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Vibrant Light Gradient Blobs */
+body::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: #f8fafc;
+    z-index: -1;
+}
+
+
+
+/* Custom Header Block style to match HealthLens AI vibe */
+header, nav.nav-container {
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); /* Deep Navy/Slate */
+    width: 100%;
+    max-width: 100% !important; /* Full width header */
+    margin: 0;
+    padding: 2.5rem 0; /* Vertical breathing room */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 4px solid #38bdf8; /* Vibrant Sky Blue accent line */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure Logo text is white and glowing within the dark header */
+.logo-text {
+    color: white !important;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.4); /* Neon blue glow */
+    font-size: 3.5rem !important;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+
+.btn-primary-light {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, #1d4ed8 100%);
+    color: white;
+    font-weight: 700;
+    padding: 1.25rem 2.5rem;
+    border-radius: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.4);
+    filter: brightness(1.1);
+}
+/* cursor-glow style to match your theme's light blue */
+.logo-text {
+    color: white !important;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.4); /* Neon blue glow */
+    font-size: 3.5rem !important;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+/* Ensure the logo and text are always sharp and readable */
+.logo-text {
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: #0f172a;
+    transition: transform 0.3s ease;
+}
+
+/* Nav container spacing */
+.nav-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+}
+/* Increased width and reduced top spacing */
+.form-card {
+    background: #ffffff;
+    border: 2px solid #38bdf8;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+    border-radius: 2.5rem;
+    
+    /* Reduce padding slightly from 2.5rem to 2rem */
+    padding: 2rem; 
+    
+    /* Match the new HTML width */
+    max-width: 4xl; 
+    margin-top: -2rem;
+    transition: all 0.3s ease;
+}
+/* High-visibility Sky Blue Glow for Inputs */
+.input-field {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    color: #0f172a;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-field:focus {
+    border-color: #38bdf8; /* Sky Blue */
+    background: #f0f9ff; /* Very subtle blue tint */
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2), 0 0 20px rgba(56, 189, 248, 0.1);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+/* Hover effect before clicking */
+.input-field:hover {
+    border-color: #38bdf8;
+}
+
+/* Section Headings */
+.section-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-accent);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+/* Ensures the Rupee symbol doesn't shift the text weight awkwardly */
+.currency-input {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* Optional: Make the Rupee symbol a slightly different color if desired */
+.currency-input::first-letter {
+    color: var(--accent-blue);
+    font-weight: 800;
+}
+/* Add this to style.css to fix the 'Audit Result' page alignment */
+.animate-slide-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Ensure the sky blue border from your Form matches here */
+.border-sky-400 {
+    border-color: #38bdf8 !important;
+}
+.header-section { 
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); 
+    width: 100vw; /* Forces full viewport width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 4px solid #38bdf8;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.logo-text {
+    color: white !important;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    font-size: 3.5rem !important;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+.main-title {
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: #0f172a;
+    transition: transform 0.3s ease;
+}
+ 
+
+
+
+
+/* The Glow Effect seen in your Form Page Screenshot */
+@keyframes glow { 
+    from { text-shadow: 0 0 10px #00c6ff; } 
+    to { text-shadow: 0 0 25px #00c6ff, 0 0 40px #0072ff; } 
+}
+h2 {
+    border-bottom: none !important;
+}
