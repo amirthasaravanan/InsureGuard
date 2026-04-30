@@ -23,7 +23,7 @@ A key architectural decision in **InsureGuard** is the separation of **Predictio
 
 ## 🚀 Features
 * **Hybrid Risk Scoring**: Uses a weighted logic engine to calculate fraud probability along with percentage risk
-* **Clinical Reasoning**: Integrated with **Gemini 1.5 Flash** to provide point-by-point explanations of discrepancies present in the report.
+* **Clinical Reasoning**: Integrated with **Genearative AI** to provide point-by-point explanations of discrepancies present in the report.
 * **Automated Audit**: Instantly flags issues like duration-treatment mismatches and financial anomalies.
 * **Modern Interface**: A clean, responsive UI built with Tailwind CSS for high-speed auditing workflows.
 
