@@ -4,7 +4,7 @@
 
 - By combining a Deterministic Engine with the reasoning capabilities of Generative AI, it helps auditors identify the inconsistencies instantly.
 
-> ### **Live Project Link:** [https://insureguard.onrender.com](https://insureguard.onrender.com) 
+> ### **Live Project Link:** [https://insureguard-kbut.onrender.com/](https://insureguard-kbut.onrender.com/) 
 
 ## 👨‍💼 Targeted User: The Claims Auditor
 Unlike patient-facing portals, **InsureGuard** is a specialized internal tool designed for **Insurance Claims Officers** and **Analysts**. 
