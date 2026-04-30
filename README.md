@@ -29,7 +29,7 @@ A key architectural decision in **InsureGuard** is the separation of **Predictio
 
 ## 🛠️ Tech Stack
 * **Backend**: Python / Flask
-* **AI**: Google Gemini AI (genai SDK)
+* **AI**: Google Gemini API (genai SDK)
 * **Frontend**: HTML5, Tailwind CSS, JavaScript
 * **Deployment**: Render
 
